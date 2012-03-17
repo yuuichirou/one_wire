@@ -42,8 +42,22 @@ union uromcode
 
 typedef union uromcode romcode ;
 
+struct one_wire_search_data
+{
+  uint8_t             last_discrepancy ;
+  uint8_t             rom_bit_index ;
+  uint8_t             discrepancy_marker ;
+  romcode             rom ;
+} ;
+
 
 extern uint8_t	      numbers_of_one_wire_devices ;
+
+extern uint8_t	      one_wire_flags ;
+#define ONE_WIRE_SEARCH_DONE_FLAG	0
+#define A_BIT				1
+#define B_BIT				2
+#define ONE_WIRE_DEVICES_DETECTED	3
 
 /* ROM commands */
 #define OW_READ_ROM                     0x33
@@ -62,6 +76,7 @@ void one_wire_write_bit (uint8_t a) ;
 void one_wire_copy_romcode (romcode * dest, romcode * src) ;
 void one_wire_send_command (uint8_t command) ;
 #define one_wire_send_rom_command one_wire_send_command
+void search_one_wire_devices (romcode * list, uint8_t list_size) ;
 
 #endif /* _ONE_WIRE_H_ */
 
