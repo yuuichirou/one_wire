@@ -45,6 +45,14 @@ typedef union uromcode romcode ;
 
 extern uint8_t	      numbers_of_one_wire_devices ;
 
+/* ROM commands */
+#define OW_READ_ROM                     0x33
+#define OW_MATCH_ROM                    0x55
+#define OW_SEARCH_ROM                   0xF0
+#define OW_ALARM_SEARCH                 0xEC
+#define OW_SKIP_ROM                     0xCC
+
+
 void one_wire_reset (void) ;
 uint8_t one_wire_read_presence_pulse (void) ;
 #define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
@@ -52,6 +60,8 @@ uint8_t one_wire_read_presence_pulse (void) ;
 uint8_t one_wire_read_bit (void) ;
 void one_wire_write_bit (uint8_t a) ;
 void one_wire_copy_romcode (romcode * dest, romcode * src) ;
+void one_wire_send_command (uint8_t command) ;
+#define one_wire_send_rom_command one_wire_send_command
 
 #endif /* _ONE_WIRE_H_ */
 

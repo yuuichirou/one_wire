@@ -28,7 +28,8 @@ sources         = src/one_wire_reset.c\
                   src/one_wire_read_presence_pulse.c\
                   src/one_wire_read_bit.c\
                   src/one_wire_write_bit.c\
-                  src/one_wire_copy_romcode.c
+                  src/one_wire_copy_romcode.c\
+                  src/one_wire_send_command.c
 
 # put object files in place where are source files
 objects = $(subst .c,.o,$(sources))

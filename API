@@ -8,6 +8,9 @@ functions:                                               C code/
         one_wire_write_bit                                  C
         ---
         one_wire_copy_romcode                               C
+        ---
+        one_wire_send_command                               C
+        one_wire_send_rom_command                           M
 
 _______________________________
 (1)
