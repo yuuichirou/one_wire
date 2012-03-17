@@ -1,0 +1,9 @@
+
+A set of functions to handle Dallas "One Wire" protocol and devices.
+
+This set is released under the GNU General Public License (GPL) version 3, see
+the file 'COPYING' for more information.
+
+The source code is tested on ATMEL microcontroller ATMega8. List of available
+function is placed in 'API' file.
+
