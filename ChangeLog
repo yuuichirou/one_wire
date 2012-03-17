@@ -1,0 +1,16 @@
+libone_wire (0.1)
+    * New functions:
+        one_wire_reset
+        one_wire_read_presence_pulse
+        one_wire_init
+        one_wire_read_bit
+        one_wire_write_bit
+        one_wire_search_devices
+        one_wire_search_first
+        one_wire_search_next
+        one_wire_copy_romcode
+        one_wire_send_command
+        one_wire_send_rom_command
+    * New variables:
+        numbers_of_one_wire_devices
+

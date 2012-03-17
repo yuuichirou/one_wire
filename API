@@ -1,0 +1,20 @@
+functions:                                               C code/
+                                                          macro
+        one_wire_reset                                      C
+        one_wire_read_presence_pulse                        C
+        one_wire_init                                       M
+        ---
+        one_wire_read_bit                                   C
+        one_wire_write_bit                                  C
+        ---
+        one_wire_copy_romcode                               C
+        ---
+        one_wire_send_command                               C
+        one_wire_send_rom_command                           M
+        ---
+        one_wire_search_devices                             C
+        one_wire_search_first                               C
+        one_wire_search_next                                C
+
+_______________________________
+(1)
