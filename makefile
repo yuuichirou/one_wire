@@ -24,7 +24,7 @@
 TARGET          = libone_wire
 
 #------------------------- Sources --------------------------------------------
-sources         = 
+sources         = src/one_wire_reset.c
 
 # put object files in place where are source files
 objects = $(subst .c,.o,$(sources))

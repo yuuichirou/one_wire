@@ -1,0 +1,7 @@
+functions:                                               C code/
+                                                          macro
+        one_wire_reset                                      C
+        ---
+
+_______________________________
+(1)
