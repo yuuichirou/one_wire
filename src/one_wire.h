@@ -43,6 +43,8 @@ union uromcode
 typedef union uromcode romcode ;
 
 
+extern uint8_t	      numbers_of_one_wire_devices ;
+
 void one_wire_reset (void) ;
 uint8_t one_wire_read_presence_pulse (void) ;
 #define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
