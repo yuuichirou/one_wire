@@ -29,6 +29,8 @@
 
 void one_wire_reset (void) ;
 uint8_t one_wire_read_presence_pulse (void) ;
+#define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
+                          SETBIT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT)
 
 #endif /* _ONE_WIRE_H_ */
 
