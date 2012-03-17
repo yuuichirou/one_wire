@@ -27,6 +27,22 @@
 #include "config.h"
 #include <stdint.h>
 
+struct sromcode
+{
+  uint8_t             family_code ;
+  uint8_t             serial[6] ;
+  uint8_t             crc ;
+} ;
+
+union uromcode
+{
+  struct sromcode     romcode ;
+  uint8_t             byte[8] ;
+} ;
+
+typedef union uromcode romcode ;
+
+
 void one_wire_reset (void) ;
 uint8_t one_wire_read_presence_pulse (void) ;
 #define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
