@@ -4,6 +4,8 @@ functions:                                               C code/
         one_wire_read_presence_pulse                        C
         one_wire_init                                       M
         ---
+        one_wire_read_bit                                   C
+        one_wire_write_bit                                  C
 
 _______________________________
 (1)

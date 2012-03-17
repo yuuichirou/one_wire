@@ -1,5 +1,5 @@
 /*
- * one_wire.h
+ * one_wire_read_bit.c
  * This file is part of the set of functions to handle Dallas "One Wire"
  * protocol and devices.
  *
@@ -21,18 +21,22 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef _ONE_WIRE_H_
-#define _ONE_WIRE_H_
+#include "one_wire.h"
+#include "macros.h"
+#include <avr/io.h>
+#include <util/delay.h>
 
-#include "config.h"
-#include <stdint.h>
-
-void one_wire_reset (void) ;
-uint8_t one_wire_read_presence_pulse (void) ;
-#define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
-                          SETBIT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT)
-uint8_t one_wire_read_bit (void) ;
-void one_wire_write_bit (uint8_t a) ;
-
-#endif /* _ONE_WIRE_H_ */
+uint8_t one_wire_read_bit (void)
+{
+  uint8_t a;
+  PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;
+  CLEARBIT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;
+  _delay_us (1) ;
+  SETBIT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;
+  PIN_INPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;
+  _delay_us (9) ;
+  a = BITVAL (ONE_WIRE_DATA_PIN, ONE_WIRE_DATA_BIT) ;
+  _delay_us (50) ;
+  return a;
+}
 
