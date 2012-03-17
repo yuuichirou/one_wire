@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#define	ONE_WIRE_DATA_PORT		PORTB
-#define	ONE_WIRE_DATA_PIN		PINB
-#define ONE_WIRE_DATA_BIT		PB1
+#define	ONE_WIRE_DATA_PORT              PORTB
+#define	ONE_WIRE_DATA_PIN               PINB
+#define ONE_WIRE_DATA_BIT               PB1
 

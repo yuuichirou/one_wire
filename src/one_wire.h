@@ -51,13 +51,13 @@ struct one_wire_search_data
 } ;
 
 
-extern uint8_t	      numbers_of_one_wire_devices ;
+extern uint8_t        numbers_of_one_wire_devices ;
 
-extern uint8_t	      one_wire_flags ;
-#define ONE_WIRE_SEARCH_DONE_FLAG	0
-#define A_BIT				1
-#define B_BIT				2
-#define ONE_WIRE_DEVICES_DETECTED	3
+extern uint8_t        one_wire_flags ;
+#define ONE_WIRE_SEARCH_DONE_FLAG       0
+#define A_BIT                           1
+#define B_BIT                           2
+#define ONE_WIRE_DEVICES_DETECTED       3
 
 /* ROM commands */
 #define OW_READ_ROM                     0x33
@@ -67,16 +67,16 @@ extern uint8_t	      one_wire_flags ;
 #define OW_SKIP_ROM                     0xCC
 
 
-void one_wire_reset (void) ;
+void    one_wire_reset (void) ;
 uint8_t one_wire_read_presence_pulse (void) ;
 #define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
                           SETBIT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT)
 uint8_t one_wire_read_bit (void) ;
-void one_wire_write_bit (uint8_t a) ;
-void one_wire_copy_romcode (romcode * dest, romcode * src) ;
-void one_wire_send_command (uint8_t command) ;
+void    one_wire_write_bit (uint8_t a) ;
+void    one_wire_copy_romcode (romcode * dest, romcode * src) ;
+void    one_wire_send_command (uint8_t command) ;
 #define one_wire_send_rom_command one_wire_send_command
-void search_one_wire_devices (romcode * list, uint8_t list_size) ;
+void    search_one_wire_devices (romcode * list, uint8_t list_size) ;
 uint8_t one_wire_search_first (struct one_wire_search_data * search_data) ;
 uint8_t one_wire_search_next  (struct one_wire_search_data * search_data) ;
 
