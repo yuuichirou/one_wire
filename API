@@ -1,6 +1,7 @@
 functions:                                               C code/
                                                           macro
         one_wire_reset                                      C
+        one_wire_read_presence_pulse                        C
         ---
 
 _______________________________

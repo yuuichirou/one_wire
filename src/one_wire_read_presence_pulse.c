@@ -1,5 +1,5 @@
 /*
- * one_wire.h
+ * one_wire_read_presence_pulse.c
  * This file is part of the set of functions to handle Dallas "One Wire"
  * protocol and devices.
  *
@@ -21,14 +21,18 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef _ONE_WIRE_H_
-#define _ONE_WIRE_H_
+#include "one_wire.h"
+#include "macros.h"
+#include <avr/io.h>
+#include <util/delay.h>
 
-#include "config.h"
-#include <stdint.h>
-
-void one_wire_reset (void) ;
-uint8_t one_wire_read_presence_pulse (void) ;
-
-#endif /* _ONE_WIRE_H_ */
+uint8_t one_wire_read_presence_pulse (void)
+{
+  uint8_t a ;
+  PIN_INPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;
+  _delay_us (65) ;
+  a = BITCLEAR (ONE_WIRE_DATA_PIN, ONE_WIRE_DATA_BIT) ;
+  _delay_us (415) ;
+  return a ;
+}
 
