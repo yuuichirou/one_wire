@@ -1,5 +1,5 @@
 /*
- * one_wire.h
+ * one_wire_copy_romcode.c
  * This file is part of the set of functions to handle Dallas "One Wire"
  * protocol and devices.
  *
@@ -21,37 +21,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef _ONE_WIRE_H_
-#define _ONE_WIRE_H_
+#include "one_wire.h"
 
-#include "config.h"
-#include <stdint.h>
-
-struct sromcode
+void one_wire_copy_romcode (romcode * dest, romcode * src)
 {
-  uint8_t             family_code ;
-  uint8_t             serial[6] ;
-  uint8_t             crc ;
-} ;
-
-union uromcode
-{
-  struct sromcode     romcode ;
-  uint8_t             byte[8] ;
-} ;
-
-typedef union uromcode romcode ;
-
-
-extern uint8_t	      numbers_of_one_wire_devices ;
-
-void one_wire_reset (void) ;
-uint8_t one_wire_read_presence_pulse (void) ;
-#define one_wire_init()   PIN_OUTPUT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT) ;\
-                          SETBIT (ONE_WIRE_DATA_PORT, ONE_WIRE_DATA_BIT)
-uint8_t one_wire_read_bit (void) ;
-void one_wire_write_bit (uint8_t a) ;
-void one_wire_copy_romcode (romcode * dest, romcode * src) ;
-
-#endif /* _ONE_WIRE_H_ */
+  uint8_t i ;
+  for (i = 0; i < 8; i++)
+    dest->byte[i] = src->byte[i] ;
+}
 
