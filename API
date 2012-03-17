@@ -13,6 +13,8 @@ functions:                                               C code/
         one_wire_send_rom_command                           M
         ---
         one_wire_search_devices                             C
+        one_wire_search_first                               C
+        one_wire_search_next                                C
 
 _______________________________
 (1)

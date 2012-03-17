@@ -77,6 +77,8 @@ void one_wire_copy_romcode (romcode * dest, romcode * src) ;
 void one_wire_send_command (uint8_t command) ;
 #define one_wire_send_rom_command one_wire_send_command
 void search_one_wire_devices (romcode * list, uint8_t list_size) ;
+uint8_t one_wire_search_first (struct one_wire_search_data * search_data) ;
+uint8_t one_wire_search_next  (struct one_wire_search_data * search_data) ;
 
 #endif /* _ONE_WIRE_H_ */
 
