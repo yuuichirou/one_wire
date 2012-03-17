@@ -27,7 +27,7 @@
 uint8_t one_wire_search_next (struct one_wire_search_data * search_data)
 {
   uint8_t return_value ;
-  uint8_t index=0, bit=0 ;
+  uint8_t index = 0, bit = 0 ;
 
   return_value = FALSE ;
   if (BITSET (one_wire_flags, ONE_WIRE_SEARCH_DONE_FLAG))
@@ -53,8 +53,8 @@ uint8_t one_wire_search_next (struct one_wire_search_data * search_data)
                            CLEARBIT (one_wire_flags, B_BIT) ;
     if (BITSET (one_wire_flags, A_BIT) && BITSET (one_wire_flags, B_BIT))
     {
-      search_data->last_discrepancy = 0;
-      return return_value;
+      search_data->last_discrepancy = 0 ;
+      return return_value ;
     }
     index = (uint8_t)(search_data->rom_bit_index-1) >> 3 ;
     bit   = (uint8_t)(search_data->rom_bit_index-1) & 0x07 ;
@@ -94,6 +94,6 @@ uint8_t one_wire_search_next (struct one_wire_search_data * search_data)
   if (search_data->last_discrepancy == 0)
     SETBIT (one_wire_flags, ONE_WIRE_SEARCH_DONE_FLAG) ;
   return_value = TRUE ;
-  return return_value;
+  return return_value ;
 }
 

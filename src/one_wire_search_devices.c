@@ -27,7 +27,7 @@
 #include <stdlib.h>
 
 uint8_t               numbers_of_one_wire_devices ;
-uint8_t	              one_wire_flags ;
+uint8_t               one_wire_flags ;
 
 
 void search_one_wire_devices (romcode * list, uint8_t list_size)
@@ -39,7 +39,7 @@ void search_one_wire_devices (romcode * list, uint8_t list_size)
   
   if (one_wire_search_first (search_data))
   {
-    numbers_of_one_wire_devices ++ ;
+    numbers_of_one_wire_devices++ ;
     if (numbers_of_one_wire_devices <= list_size)
       one_wire_copy_romcode (&list[numbers_of_one_wire_devices-1],
                              &search_data->rom) ;
